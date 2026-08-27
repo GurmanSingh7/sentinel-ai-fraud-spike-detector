@@ -1,0 +1,17 @@
+{
+  "precision": 0.9969,
+  "recall": 0.9985,
+  "f1": 0.9977,
+  "accuracy": 0.9975,
+  "test_samples": 1200,
+  "train_samples": 4800,
+  "threshold": 0.5,
+  "confusion_matrix": {
+    "tn": 550,
+    "fp": 2,
+    "fn": 1,
+    "tp": 647
+  },
+  "false_positive_cost": 54890.82,
+  "dataset_note": "Synthetic reproducible demo dataset; held-out test split uses random_state=42."
+}

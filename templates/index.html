@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sentinel AI | Fraud Spike Detector</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<nav><div class="brand">◈ SENTINEL <span>AI</span></div><div class="tag">AI RISK MANAGER · DEFENSE ONLY</div><div class="live">● MODEL ONLINE</div></nav>
+<main>
+<section class="hero">
+  <div><div class="eyebrow">RAZORPAY BUILDATHON · TRACK 02</div><h1>Detect fraud spikes<br><em>before losses compound.</em></h1><p>Sentinel analyzes payment behaviour over a merchant time window and flags abnormal patterns using a trained ML classifier.</p></div>
+  <div class="heroBox"><small>HELD-OUT EVALUATION</small><div class="metricRow"><div><b id="precision">—</b><span>PRECISION</span></div><div><b id="recall">—</b><span>RECALL</span></div><div><b id="f1">—</b><span>F1 SCORE</span></div></div><p>Metrics are calculated on a test set not used during fitting.</p></div>
+</section>
+
+<section class="layout">
+<div class="panel">
+<div class="head"><div><small>01 / WINDOW SIGNALS</small><h2>Merchant Activity</h2></div><button onclick="scenario('safe')">Safe</button><button onclick="scenario('review')">Review</button><button onclick="scenario('spike')">Spike</button></div>
+<form id="form">
+<div class="two">
+<label>Transactions in window<input id="txn_count" type="number" value="420"></label>
+<label>Average amount ₹<input id="avg_amount" type="number" value="1800"></label>
+</div>
+<div class="two">
+<label>Failed-payment rate<input id="failed_rate" type="number" value="0.03" step="0.01" min="0" max="1"></label>
+<label>New-device rate<input id="new_device_rate" type="number" value="0.12" step="0.01" min="0" max="1"></label>
+</div>
+<div class="two">
+<label>High-risk geography rate<input id="high_risk_country_rate" type="number" value="0.03" step="0.01" min="0" max="1"></label>
+<label>Chargeback rate<input id="chargeback_rate" type="number" value="0.01" step="0.01" min="0" max="1"></label>
+</div>
+<div class="two">
+<label>Historical fraud baseline<input id="fraud_rate_baseline" type="number" value="0.01" step="0.005" min="0" max="1"></label>
+<label>Hour (0–23)<input id="hour" type="number" value="14" min="0" max="23"></label>
+</div>
+<button class="run">ANALYZE FRAUD SPIKE <span>→</span></button>
+</form>
+</div>
+
+<div class="panel result">
+<div class="head"><div><small>02 / MODEL DECISION</small><h2>Risk Assessment</h2></div><div id="empty" class="empty">Run an analysis to inspect<br>the fraud-spike probability.</div>
+<div id="output" class="hidden">
+<div class="score"><b id="risk">0</b><span>/100 RISK</span></div>
+<div id="decision" class="decision">—</div>
+<p id="action" class="action"></p>
+<div class="prob"><span>MODEL PROBABILITY</span><b id="prob">0%</b></div><div class="bar"><i id="fill"></i></div>
+<div class="signals"><h3>Explainable signals</h3><div id="signals"></div></div>
+<div class="gmv"><span>WINDOW GMV</span><b id="gmv">₹0</b></div>
+</div>
+</div>
+</section>
+
+<section class="performance panel">
+<div class="head"><div><small>03 / HELD-OUT TEST SET</small><h2>Honest Model Metrics</h2></div><span class="badge">TEST ONLY</span></div>
+<div class="perfGrid">
+<div><span>Precision</span><b id="p2">—</b><small>Of flagged spikes, how many were truly spikes?</small></div>
+<div><span>Recall</span><b id="r2">—</b><small>Of real spikes, how many did we catch?</small></div>
+<div><span>F1 Score</span><b id="f2">—</b><small>Balance of precision and recall.</small></div>
+<div><span>False positives</span><b id="fp">—</b><small id="cost">Estimated cost: —</small></div>
+</div>
+<div class="matrix"><b>CONFUSION MATRIX</b><div id="matrix">Loading…</div></div>
+</section>
+<footer>Synthetic demo data · Held-out evaluation · Defensive fraud prevention only</footer>
+</main>
+<script src="/static/app.js"></script>
+</body></html>
