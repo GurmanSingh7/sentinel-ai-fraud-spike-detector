@@ -7,7 +7,6 @@ from sklearn.metrics import precision_score, recall_score, f1_score, confusion_m
 
 DATA = os.path.join("data", "fraud_windows.csv")
 MODEL = os.path.join("models", "model.joblib")
-
 METRICS = os.path.join("models", "metrics.json")
 
 FEATURES = [
